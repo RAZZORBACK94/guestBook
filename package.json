@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@prisma/client": "^6.0.1",
+    "@types/locomotive-scroll": "^4.1.4",
+    "framer-motion": "^11.13.1",
     "next": "14.2.20",
     "prisma": "^6.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "sass": "^1.82.0",
     "sonner": "^1.7.0"
   },
   "devDependencies": {
