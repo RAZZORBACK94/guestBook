@@ -2,13 +2,11 @@
 
 import { JWTPayload, jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = 'secret'
 const encodedKey = new TextEncoder().encode(secretKey)
 
-export async function encrypt(payload: any) {
+export async function encrypt(payload: JWTPayload) {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
