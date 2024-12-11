@@ -1,14 +1,27 @@
 "use client";
 
+import { deleteSession } from "../lib/auth";
 import { GuestProps } from "../lib/types";
+import { useRouter } from "next/navigation";
 
 interface uiProps {
   dataGuest: GuestProps[] | undefined;
 }
 
 export default function Ui({ dataGuest }: uiProps) {
+
+  const router = useRouter()
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-6">
+    <>
+    <div className="fixed flex justify-end top-0 bg-slate-200 w-full px-5 py-2">
+      <button onClick={async() => {
+        await deleteSession()
+        router.push('/login')
+      }} className="bg-white px-2 py-1 rounded-xl hover:bg-slate-100">
+        logout
+      </button>
+    </div>
+    <div className="min-h-screen bg-gray-100 py-14 px-6">
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Daftar Tamu
       </h1>
@@ -31,5 +44,6 @@ export default function Ui({ dataGuest }: uiProps) {
           ))}
       </div>
     </div>
+    </>
   );
 }

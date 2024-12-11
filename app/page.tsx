@@ -16,8 +16,6 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       // Dynamically import LocomotiveScroll and initialize it
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
 
       setTimeout(() => {
         setIsLoading(false);
@@ -101,7 +99,7 @@ export default function Home() {
               <input
                 id="email"
                 type="email"
-                placeholder="Email"
+                placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -118,7 +116,7 @@ export default function Home() {
               <input
                 id="telp"
                 type="tel"
-                placeholder="Telepon"
+                placeholder="0812 3456 7891"
                 value={telp}
                 onChange={(e) => setTelp(e.target.value)}
                 required
@@ -135,7 +133,7 @@ export default function Home() {
             </div>
           </form>
           <button
-            onClick={() => router.push("/admin")}
+            onClick={() => router.push("/login")}
             className="mt-4 w-full py-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200"
           >
             Admin
